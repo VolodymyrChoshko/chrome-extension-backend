@@ -24,6 +24,10 @@ class Request(BaseModel):
     question: str
     answers: List[str]
 
+@app.get("/")
+async def health_check():
+    return {"status": "success"}
+
 @app.post("/api")
 async def ask_question(request: Request):
     question = request.question
